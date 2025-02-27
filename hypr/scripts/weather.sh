@@ -49,42 +49,78 @@ DATE=$(date +%s)
 
 # Determine Weather Icon and Color
 function setIcons {
-    if [ "$WID" -le 232 ]; then
-        ICON_COLOR=$COLOR_THUNDER; ICON="" # Thunderstorm
-    elif [ "$WID" -le 321 ]; then
-        ICON_COLOR=$COLOR_LIGHT_RAIN; ICON="" # Drizzle
-    elif [ "$WID" -le 531 ]; then
-        ICON_COLOR=$COLOR_HEAVY_RAIN; ICON="" # Rain
-    elif [ "$WID" -le 622 ]; then
-        ICON_COLOR=$COLOR_SNOW; ICON="" # Snow
-    elif [ "$WID" -le 701 ]; then
-        ICON_COLOR=$COLOR_FOG; ICON="" # Mist
-    elif [ "$WID" -le 721 ]; then
-        ICON_COLOR=$COLOR_FOG; ICON="" # Haze
-    elif [ "$WID" -le 731 ]; then
-        ICON_COLOR=$COLOR_FOG; ICON="" # Dust
-    elif [ "$WID" -le 771 ]; then
-        ICON_COLOR=$COLOR_FOG; ICON="" # Squalls
-    elif [ "$WID" -eq 781 ]; then
-        ICON_COLOR=$COLOR_TORNADO; ICON="" # Tornado
-    elif [ "$WID" -eq 800 ]; then
-        if [ "$DATE" -ge "$SUNRISE" ] && [ "$DATE" -le "$SUNSET" ]; then
-            ICON_COLOR=$COLOR_SUN; ICON="" # Clear Day
+    if [ $WID -le 232 ]; then
+        #Thunderstorm
+        ICON_COLOR=$COLOR_THUNDER
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON=""
         else
-            ICON_COLOR=$COLOR_MOON; ICON="" # Clear Night
+            ICON=""
         fi
-    elif [ "$WID" -eq 801 ]; then
-        ICON_COLOR=$COLOR_CLOUD; ICON="" # Few Clouds
-    elif [ "$WID" -eq 802 ]; then
-        ICON_COLOR=$COLOR_CLOUD; ICON="" # Scattered Clouds
-    elif [ "$WID" -eq 803 ]; then
-        ICON_COLOR=$COLOR_CLOUD; ICON="" # Broken Clouds
-    elif [ "$WID" -eq 804 ]; then
-        ICON_COLOR=$COLOR_CLOUD; ICON="" # Overcast Clouds
+    elif [ $WID -le 311 ]; then
+        #Light drizzle
+        ICON_COLOR=$COLOR_LIGHT_RAIN
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON=""
+        else
+            ICON=""
+        fi
+    elif [ $WID -le 321 ]; then
+        #Heavy drizzle
+        ICON_COLOR=$COLOR_HEAVY_RAIN
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON=""
+        else
+            ICON=""
+        fi
+    elif [ $WID -le 531 ]; then
+        #Rain
+        ICON_COLOR=$COLOR_HEAVY_RAIN
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON=""
+        else
+            ICON=""
+        fi
+    elif [ $WID -le 622 ]; then
+        #Snow
+        ICON_COLOR=$COLOR_SNOW
+        ICON=""
+    elif [ $WID -le 771 ]; then
+        #Fog
+        ICON_COLOR=$COLOR_FOG
+        ICON=""
+    elif [ $WID -eq 781 ]; then
+        #Tornado
+        ICON_COLOR=$COLOR_TORNADO
+        ICON=""
+    elif [ $WID -eq 800 ]; then
+        #Clear sky
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON_COLOR=$COLOR_SUN
+            ICON=""
+        else
+            ICON_COLOR=$COLOR_MOON
+            ICON=""
+        fi
+    elif [ $WID -eq 801 ]; then
+        # Few clouds
+        if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
+            ICON_COLOR=$COLOR_SUN
+            ICON=""
+        else
+            ICON_COLOR=$COLOR_MOON
+            ICON=""
+        fi
+    elif [ $WID -le 804 ]; then
+        # Overcast
+        ICON_COLOR=$COLOR_CLOUD
+        ICON=""
     else
-        ICON_COLOR=$COLOR_ERR; ICON="" # Unknown Condition
+        ICON_COLOR=$COLOR_ERR
+        ICON=""
     fi
 }
+
 
 # Determine Temperature Color
 function formatTemperature {
