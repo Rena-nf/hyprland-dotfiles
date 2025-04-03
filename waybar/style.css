@@ -180,14 +180,14 @@ tooltip {
 }
 
 #cpu {
-   border-radius: 0px 0px 0px 0px;
+   border-radius: 13px 0px 0px 13px;
    padding-left:10px;
    margin-right:0px;
    margin-left: 0px;
 }
 
 #custom-weather {
-   border-radius: 13px 0px 0px 13px;
+   border-radius: 13px 13px 13px 13px;
    margin-right: 0px
    
 }
