@@ -1,0 +1,30 @@
+exec-once = nm-applet 
+
+# Bar, Wallpaper, etc
+exec-once = waybar 
+exec-once = swww-daemon --format xrgb
+exec-once = /usr/lib/geoclue-2.0/demos/agent & gammastep
+
+# Notifications
+exec-once = dunst 
+
+# Clipboard: history
+# exec-once = wl-paste --watch cliphist store &
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+
+# Core components (authentication, lock screen, notification daemon)
+exec-once = dbus-update-activation-environment --all
+exec-once = sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Some fix idk
+exec-once = hyprpm reload
+
+# Disable cm
+exec-once = hyprctl reload
+render {
+    cm_enabled = false
+}
+
+# Misc
+exec-once = blueman-applet 
+exec-once = unclutter -idle 2 & 
+

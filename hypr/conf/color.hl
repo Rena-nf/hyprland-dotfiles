@@ -1,0 +1,6 @@
+source=~/.config/hypr/conf/macchiato.hl
+
+general {
+    col.active_border = $sapphire 
+    col.inactive_border = $text
+}

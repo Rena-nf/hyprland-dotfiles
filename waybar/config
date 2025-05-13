@@ -11,7 +11,7 @@
         "cpu",
         "memory",
         "disk",
-        "battery",
+        "battery"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -27,7 +27,7 @@
     "tray": {
         "icon-size": 16,
         "icon-theme": "Papirus",
-        "spacing": 2,
+        "spacing": 2
     },
     "custom/spacer": {
         "format": " ", // Empty space
@@ -61,7 +61,7 @@
             "urgent": "",
             "persistent": "",
             "focused": "",
-            "default": "",
+            "default": ""
         },
         "sort-by-number": true,
         "persistent-workspaces": {
@@ -119,7 +119,7 @@
             "default": [
                 "",
                 "",
-                "",
+                ""
             ]
         }
     },
@@ -129,12 +129,12 @@
         "format-source-muted": "",
         "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
         "on-scroll-up": "wpctl set-volume @DEFAULT_SOURCE@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 5%-",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SOURCE@ 5%-"
     },
     "hyprland/language": {
         "format": "<span color='#f9e2af'>󰌌</span> <span color='#cdd6f4'>{}</span>",
         "format-ar": "ara",
-        "format-en": "eng",
+        "format-en": "eng"
     },
     "disk": {
         "interval": 3,
